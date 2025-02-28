@@ -1,0 +1,23 @@
+<?php
+require 'db.php';
+if($_POST['submit']){
+    $fullname=$_POST['fullname'];
+    $gender=$_POST['gender'];
+    $email=$_POST['email'];
+    $fullname=$_POST['region'];
+    $district=$_POST['district'];
+    $password=$_POST['password'];
+    $confirmpassword=$_POST['confirmpassword'];
+
+}
+#insert data to the database table
+$sql= "insert into registritonform(fullname,gender,email,region,district,password,confirmpassword)values('$fullname','$gender','$email','$region','$district','$password','$confrimpassword')";
+$insert=mysqli_connect('$conn','$sql');
+#check if data are recorded
+if(!$insert){
+    echo 'data are recorded';
+}
+else{
+    echo 'data are not recorded';
+}
+?>

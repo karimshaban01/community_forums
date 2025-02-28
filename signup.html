@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USER REGISTRATION FORM.</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="image/Nembo ya taifa.png" type="image/gif" />
+    <!-- Add this script tag in the head of your HTML file -->
+    <script src="mex.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Simulated data for regions and districts
+            const regions = [
+                "Arusha Region",
+                "Coast(Pwani) Region",
+                "Dar es Salaam Region",
+                "Dodoma Region",
+                "Iringa Region",
+                "Kagera Region",
+                "Kaskazini Pemba Region",
+                "Kaskazini Unguja Region",
+                "Kusini Pemba Region",
+                "Kusini Unguja Region",
+                "Mjini Magharibi Region",
+                "Kigoma Region",
+                "Kilimanjaro Region",
+                "Lindi Region",
+                "Mara Region",
+                "Mbeya Region",
+                "Morogoro Region",
+                "Mtwara Region",
+                "Mwanza Region",
+                "Rukwa Region",
+                "Ruvuma Region",
+                "Singida Region",
+                "Shinyanga Region",
+                "Tabora Region",
+                "Tanga Region"
+                // ... (add other regions)
+            ];
+
+            const districts = {
+                "Arusha Region": [
+                    "Arusha District",
+                    "Arumeru District",
+                    "Babati District",
+                    "Hanang District",
+                    "Karatu District",
+                    "Kiteto District",
+                    "Mbulu District",
+                    "Monduli District",
+                    "Ngorongoro District",
+                    "Simanjiro District"
+    ],
+                    // ... (add other districts)
+                "The Coast(Pwani) Region": [
+                    "Bagamoyo District",
+                    "Kibaha District",
+                    "Kisarawe District",
+                    "Mafia District",
+                    "Mkuranga District",
+                    "Utete/Rufiji District"
+                    // ... (add other districts)
+                ],
+                // ... (add other regions and districts)
+                "Dar es Salaam Region": [
+                    "Ilala District",
+                    "Kinondoni District",
+                    "Temeke District",
+                    "Ubungo District",
+                    "Kigamboni District"
+                    ],
+
+                // Additional regions and districts provided
+                "Dodoma Region": [
+                    "Dodoma Urban District",
+                    "Dodoma Rural District",
+                    "Kondoa District",
+                    "Kongwa District",
+                    "Mpwapwa District"
+                ],
+                // ... (add other regions and districts)
+                "Iringa Region": [
+                    "Iringa District",
+                    "Ludewa District",
+                    "Makete District",
+                    "Mufindi District",
+                    "Njombe District"
+                    ],
+               "Kagera Region": [
+                    "Biharamulo District",
+                    "Bukoba District",
+                    "Karagwe District",
+                    "Muleba District",
+                    "Ngara District"
+                    ],
+               "Kaskazini Pemba Region": [
+                    "Micheweni District",
+                    "Wete District"
+                    ],
+               "Kaskazini Unguja Region": [
+                    "Kaskazini ‘A’ District",
+                    "Kaskazini ‘B’ District"
+                    ],
+               "Kusini Pemba Region": [
+                    "Chakechake District",
+                    "Mkoani District"
+                    ],
+               "Kusini Unguja Region": [
+                    "Kusini District",
+                    "Kati District"
+                    ],
+                    "Mjini Magharibi Region": [
+                    "Mjini District",
+                    "Magharibi District"
+                    ],
+                    "Kigoma Region": [
+                    "Kasulu District",
+                    "Kibondo District",
+                    "Kigoma District"
+                    ],
+                    "Kilimanjaro Region": [
+                    "Hai District",
+                    "Moshi District",
+                    "Mwanga District",
+                    "Rombo District",
+                    "Same District"
+                    ],
+                    "Lindi Region": [
+                    "Kilwa District",
+                    "Lindi District",
+                    "Liwale District",
+                    "Nachingwea District",
+                    "Ruangwa District"
+                    ],
+                    "Mara Region": [
+                    "Bunda District",
+                    "Musoma District",
+                    "Serengeti District",
+                    "Tarime District"
+                    ],
+                    "Mbeya Region": [
+                    "Chunya District",
+                    "Ileje District",
+                    "Kyela District",
+                    "Mbarali District",
+                    "Mbeya District",
+                    "Mbozi District",
+                    "Rungwe District"
+                    ],
+                    "Morogoro Region": [
+                    "Kilombero District",
+                    "Kilosa District",
+                    "Morogoro District",
+                    "Ulanga District"
+                    ],
+                    "Mtwara Region": [
+                    "Masasi District",
+                    "Mtwara District",
+                    "Newala District",
+                    "Tandahimba District"
+                    ],
+                    "Mwanza Region": [
+                    "Geita District",
+                    "Kwimba District",
+                    "Magu District",
+                    "Misungwi District",
+                    "Mwanza District",
+                    "Sengerema District",
+                    "Ukerewe District"
+                    ],
+                    "Rukwa Region": [
+                    "Mpanda District",
+                    "Nkasi District",
+                    "Sumbawanga District"
+                    ],
+                    "Ruvuma Region": [
+                    "Mbinga District",
+                    "Songea District",
+                    "Tunduru District"
+                    ],
+                    "Singida Region": [
+                    "Iramba District",
+                    "Manyoni District",
+                    "Singida District"
+                    ],
+                    "Shinyanga Region": [
+                    "Bariadi District",
+                    "Bukombe District",
+                    "Kahama District",
+                    "Maswa District",
+                    "Meatu District",
+                    "Shinyanga District"
+                    ],
+                    "Tabora Region": [
+                    "Igunga District",
+                    "Nzega District",
+                    "Sikonge District",
+                    "Tabora District",
+                    "Urambo District"
+                    ],
+                    "Tanga Region": [
+                    "Handeni District",
+                    "Korogwe District",
+                    "Lushoto District",
+                    "Muheza District",
+                    "Pangani District",
+                    "Tanga District"
+                    ]
+            };
+
+            // Update the regions dropdown
+            const regionsDropdown = document.getElementById('region');
+            regions.forEach(region => {
+                const option = document.createElement('option');
+                option.value = region;
+                option.text = region;
+                regionsDropdown.add(option);
+            });
+
+            // Update the districts dropdown based on the selected region
+            const districtsDropdown = document.getElementById('district');
+            regionsDropdown.addEventListener('change', function () {
+                const selectedRegion = this.value;
+                districtsDropdown.innerHTML = ''; // Clear previous options
+                // Fetch districts data based on the selected region
+                const selectedDistricts = districts[selectedRegion] || [];
+                selectedDistricts.forEach(district => {
+                    const option = document.createElement('option');
+                    option.value = district;
+                    option.text = district;
+                    districtsDropdown.add(option);
+                });
+            });
+        });
+    </script>
+</head>
+
+    <main>
+        <form id="registrationForm" action=" " method="POST" onsubmit="return validateForm()">
+             <img src="image/lg.png" alt="" class="mex" width="200px" height="170px">
+             <label for="fullName">FULL NAME:</label>
+             <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+
+             <label for="sex">GENDER:</label>
+             <select id="sex" name="sex" required>
+                 <option value="gender">--enter your gender--</option>
+                 <option value="male">Male</option>
+                 <option value="female">Female</option>
+                 <option value="other">Other</option>
+             </select>
+
+             <label for="email">EMAIL:</label>
+             <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="region">REGION:</label>
+            <select id="region" name="region" required>
+                <option value="region">--select your region--</option>
+
+            </select>
+            <label for="district">DISTRICT:</label>
+            <select id="district" name="district" required>
+                <option value="district">--your district will display automatically--</option>
+
+            </select>
+
+             <label for="password">PASSWORD:</label>
+             <input type="password" id="password" name="password" placeholder="Enter your password" required>
+             <label for="confirmPassword">CONFIRM PASSWORD:</label>
+             <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+
+             <button type="submit">REGISTER</button>
+             <small>I have an account? <a href="sign in.html">LOG IN</a></small>
+            
+        </form>
+    </main>
+</body>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</html>
